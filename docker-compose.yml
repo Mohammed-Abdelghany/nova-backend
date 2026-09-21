@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pharmaglow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: pharmaglow_db
+      POSTGRES_USER: pharmaglow
+      POSTGRES_PASSWORD: pharmaglow
+    ports:
+      - "5433:5432"
+    volumes:
+      - pharmaglow-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  pharmaglow-postgres-data:

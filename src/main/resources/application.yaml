@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: pharmaglow-back
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/pharmaglow_db}
+    username: ${SPRING_DATASOURCE_USERNAME:pharmaglow}
+    password: ${SPRING_DATASOURCE_PASSWORD:pharmaglow}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+
+app:
+  cors:
+    allowed-origin: ${APP_CORS_ALLOWED_ORIGIN:http://localhost:4200}
+
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:your-cloud-name}
+  api-key: ${CLOUDINARY_API_KEY:your-api-key}
+  api-secret: ${CLOUDINARY_API_SECRET:your-api-secret}
+
+telegram:
+  bot-token: ${TELEGRAM_BOT_TOKEN:your-bot-token}
+  chat-id: ${TELEGRAM_CHAT_ID:your-chat-id}
+
+jwt:
+  secret: ${JWT_SECRET:change-me-to-a-long-random-secret-before-first-run}
+  expiration-ms: 86400000
