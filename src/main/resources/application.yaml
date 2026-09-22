@@ -32,6 +32,8 @@ server:
 app:
   cors:
     allowed-origin: ${APP_CORS_ALLOWED_ORIGIN:http://localhost:4200}
+  keep-alive:
+    url: ${APP_KEEP_ALIVE_URL:}
 
 cloudinary:
   cloud-name: ${CLOUDINARY_CLOUD_NAME:your-cloud-name}
